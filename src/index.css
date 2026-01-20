@@ -1,1 +1,101 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --iron: #1a1a1a;
+    --indigo: #0a1128;
+    --concrete: #d1d5db;
+    --cedar: #5d2e1f;
+    --gold: #d4af37;
+    --bone: #f8f8f8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bone text-iron antialiased overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply font-black uppercase tracking-tighter leading-none;
+  }
+
+  ::selection {
+    @apply bg-gold text-white;
+  }
+}
+
+@layer components {
+  .brutalist-border {
+    @apply border-4 border-iron shadow-[12px_12px_0px_0px_rgba(26,26,26,1)];
+  }
+
+  .nav-link {
+    @apply relative font-mono text-sm uppercase tracking-widest transition-colors duration-300 hover:text-gold;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 py-24;
+  }
+
+  .btn-iron {
+    @apply relative inline-block px-10 py-4 bg-iron text-bone font-serif italic text-lg tracking-wider overflow-hidden transition-all duration-500 hover:bg-gold hover:text-iron;
+  }
+
+  .gold-line {
+    @apply h-[1px] w-full bg-gold/40;
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-mono-precision {
+    font-family: 'Space Mono', monospace;
+  }
+
+  .bg-concrete-texture {
+    background-color: #e5e7eb;
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--iron);
+    color: transparent;
+  }
+
+  .cedar-gradient {
+    background: linear-gradient(to bottom right, #5d2e1f, #3d1e14);
+  }
+
+  .carved-shadow {
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bone;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-iron;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gold;
+}
